@@ -20,9 +20,11 @@ class Car
   # 加速用のメソッド追加
   def speed_up
     @speed += UP_SPEED
+    # スピードが50以上でアラート&減速メソッド追加
     if  @speed >= 50
       puts "[ALERT]スピードが#{@speed}になりました。減速します。"
       self.speed_down
+    # スピードが30以上でアラート追加
     elsif @speed >= 30
       puts "[ALERT]スピードが#{@speed}になりました。"
     end
@@ -41,4 +43,16 @@ class Car
   def self.count
     @@count  # return @@countの略
   end
+end
+
+# Carクラスから継承してTrackCarクラスを追加
+class TrackCar < Car
+  #ゲッターを追加
+  attr_reader :load_weight
+
+  #initializeメソッド追加。load_weightのデフォルト引数を設定
+  def initialize(number, color, load_weight = 500)
+    @load_weight = load_weight
+  end
+
 end
