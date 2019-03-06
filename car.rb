@@ -71,7 +71,8 @@ class TrackCar < Car
   attr_reader :load_weight
 
   #initializeメソッド追加。load_weightのデフォルト引数を設定
-  def initialize(number, color, load_weight = 500)
+  def initialize(number, color, load_weight=500)
+    super(number, color)  #CarクラスのInitializeメソッドをTrackCarクラスでも呼び出せるようsuperを追加
     @load_weight = load_weight
   end
 
