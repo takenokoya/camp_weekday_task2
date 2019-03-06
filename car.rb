@@ -46,7 +46,7 @@ class Car
   def get_on
     if @passengers >= MAX_PASSENGERS
       @passengers
-      puts "乗車できません。この車の最大乗車数は4人です。"
+      puts "乗車できません。この車の最大乗車数は#{MAX_PASSENGERS}人です。"  #式展開に修正 
     else
       @passengers += 1
       puts "乗車しました。"
