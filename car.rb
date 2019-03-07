@@ -15,8 +15,10 @@ class Car
     @color = color
     # @speedを初期化
     @speed = 0
-    @passengers = 1  #@passengersを初期化
     @@count += 1
+    # 運転手を追加
+    @passengers = 1  
+
   end
 
   # 加速用のメソッド追加
@@ -25,7 +27,7 @@ class Car
     # スピードが50以上でアラート&減速メソッド追加
     if  @speed >= 50
       puts "[ALERT]スピードが#{@speed}になりました。減速します。"
-      self.speed_down
+      speed_down
     # スピードが30以上でアラート追加
     elsif @speed >= 30
       puts "[ALERT]スピードが#{@speed}になりました。"
@@ -45,7 +47,6 @@ class Car
   # get_onメソッド追加
   def get_on
     if @passengers >= MAX_PASSENGERS
-      @passengers
       puts "乗車できません。この車の最大乗車数は#{MAX_PASSENGERS}人です。"  #式展開に修正 
     else
       @passengers += 1
@@ -60,7 +61,7 @@ class Car
 
   #  クラスメソッドcount_infoを追加
   def self.count_info
-    print "Carクラスのクラス変数@@countは#{@@count}です。"
+    "Carクラスのクラス変数@@countは#{@@count}です。"
   end
 
 end
